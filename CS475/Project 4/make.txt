@@ -1,0 +1,1 @@
+g++ -o prog proj.cpp -lm -fopenmp

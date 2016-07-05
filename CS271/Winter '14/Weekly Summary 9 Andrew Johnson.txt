@@ -1,0 +1,15 @@
+Weekly Summary #10
+Andrew Johnson
+
+Fisrt we get a glimpse at using external functions in C,
+Kinda like how we can use C functions in Assembly. Then we go over a different type of UNIX,
+this is called GNU, known as GNU's Not Unix. This writer was the creator of EMACS.
+Although, EMACS has been wrtiten to be more efficient. We start to use gcc to compile different types of files.
+This is because gcc is more of a technical compiler.
+
+Then it goes over AT&T mnemonics which uses a standard C library.
+All register names are lowercase and preceed with%
+uses letters to suffix size of opperand(b byte, w word, l long)
+The sources of each register is in reverse order.
+Immediate opperands are used with a $
+Then it goes over some example programming on how AT&T uses there weird porgramming.

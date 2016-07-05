@@ -1,0 +1,28 @@
+Week 5
+(I emailed you earlier this week asking if there was a week 5 submission because it didn't pop up for me, so I'm turning it in wiht my week 6. Thank You!)
+
+
+It goes over how when pushing things on the stack then when the computer calls them it takes it from the bottom to the top.
+So when I'm coding I need to keep in mind that whenever I'm pushing things, priority is last.
+
+And when pushing registers you need to pop them instead of adding to ESP register.
+When using int 80H it calls the system to terminate the program, keep it in mind.
+
+
+Complexity kills (in Programming), so keep it simple. 
+When designing your program, write out everything that needs to happen with the program.
+
+Gives a lot of info about coding wiht ASCII values. i.e. mov byte [ASCLin+edx+1],bl.
+
+Take note that all charaters above 127 on the ASCII table will appear as .
+
+It goes over length of jumps in a program. First it mentions how local labels start with a . like .label
+
+These can be used over and over in their respected functions. 
+
+
+Week 6
+
+I couldn't find the reading on the website, so I'm assuming there is none for this week.
+Please let me know if there actually is.
+Thank You!

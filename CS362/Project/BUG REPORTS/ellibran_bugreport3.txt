@@ -1,0 +1,13 @@
+ellibran
+Bug Report 3 :
+	I found a bug when unit testing the "greatHall" function. I found the cards in hand weren't
+	the same as they should be. It seems that the discard function wasn't being called. I noticed
+	that for some reason it has been taken out. 
+*****
+	Fix :
+To fix this, all you need to do is call the discardCard function to take "Great Hall" out of your hand.
+
+Priority of this fix is pretty low because the card still works as it should and wont break the game. 
+
+The severity of this is also low since the player will just have another card in their hand, 
+they probably wont try to play it a second time.

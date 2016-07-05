@@ -1,0 +1,14 @@
+Andrew Johnson
+Weekly Summary #7
+
+Using strings is just using space, or memory in your computer.
+
+Registers used are Edi, Esi, Ecx,
+Edi - destination, or where, you are pointing to
+Esi - Source, or where, you are using information
+Ecx - Length of string(Determined by the user)
+
+when you use both edi and esi ecx needs to be the same for both registers
+
+Next is a couple pages of code on how they work
+

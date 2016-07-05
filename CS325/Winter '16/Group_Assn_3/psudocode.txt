@@ -1,0 +1,180 @@
+1)
+method 1
+	method1(int A[n], int B[m], int &sum)
+		if(n > 1 && m > 1)
+			int i, j, last, temp;
+			for(i=n; i<0; i++)
+				for(j=0; j<m; j++)
+					temp = A[i] + B[j];
+					if(abs(temp) < abs(sum))
+						sum = temp;
+			int A_new1[n/2], A_new2[n/2], B_new1[n/2], B_new2[n/2];
+			split(A, A_new1, A_new2);
+			split(B, B_new1, B_new2);
+			method1(A_new1, A_new2, sum);
+			method1(B_new1, B_new2, sum);
+
+		else
+			int temp;
+			temp = A[0]+B[0];
+			if(abs(temp) < abs(sum))
+				sum = temp;
+			
+method 2
+	method2(int A[n], int B[m])
+		if(n > 1 && m > 1)
+			sort(A);
+			sort(B);		
+			if(A[0] > 0 && B[0] > 0)
+				//compare to find the smallest and that is answer
+			else if(A[0] < 0 && B[0] < 0)
+				int i = 0, j, a, b, temp, min;
+
+				while(A[i] < 0)
+					i++;
+				a = i;
+				if(A[m] < 0)
+				{
+					a = -1; //There are no positive values
+				}
+
+				i = 0;
+				while(B[i] < 0 && i < m)
+					i++;
+				b = i;
+				if(B[m] < 0)
+				{
+					b = -1; //There are no positive values
+				}
+
+				if(b == -1 && a != -1) //ONLY NEGATIVE VALUES IN B
+					for(i = a; i < n; i++) //positive values in A
+						for(j = 0; j < m; j++) //negative values in B
+							temp = A[i] + B[j];
+							if(abs(temp) < abs(sum))
+								sum = temp;
+
+				else if(b != -1 && a == -1) //ONLY NEGATIVE VALUES IN A
+					for(! = 0; i < n; i++) //negative values in A
+						for(j = b; j < m; j++) //positive values in B
+							temp = A[i] + B[j];
+							if(abs(temp) < abs(sum))
+								sum = temp;
+
+				else if(b != -1 && a != -1) //NEGATIVE AND POSITIVE VALUES IN A AND B
+					for(! = 0; i < a; i++) //negative values in A
+						for(j = b; j < m; j++) //positive values in B
+							temp = A[i] + B[j];
+							if(abs(temp) < abs(sum))
+								sum = temp;
+					for(i = a; i < n; i++) //positive values in A
+						for(j = 0; j < b; j++) //negative values in B
+							temp = A[i] + B[j];
+							if(abs(temp) < abs(sum))
+								sum = temp;
+		
+			int A_new1[n/2], A_new2[n/2], B_new1[n/2], B_new2[n/2];
+			split(A, A_new1, A_new2);
+			split(B, B_new1, B_new2);
+			method2(A_new1, A_new2, sum);
+			method2(B_new1, B_new2, sum);
+
+		else
+			int temp;
+			temp = A[0]+B[0];
+			if(abs(temp) < abs(sum))
+				sum = temp;
+
+method 3
+	method3(int N[], int n, int * min, int * pos1, int * pos2, int start)
+		int C[n], P[n];
+		int i, min = 1000, temp, a, b;
+		sum_set(A, B, a, b);
+
+      		combine(A, B, C, P, a, b, start);
+      		sort(C, P, a+b);			// O(n^2)
+		
+		for(i = 0; i < a+b-1; i++)
+      		{
+		         if(P[i] < n1+start && P[i+1] >= n1+start)
+ 		        {
+            		temp = C[i] - C[i+1];
+            		if(abs(temp) < abs(*min))
+				min = temp;
+				a = i;
+				b = i+1;
+
+
+Run time Analysis
+
+For method 1 the run time analysis was O(n^2) since there are 2^n combinations and at each combination you have a nested for loop. The minimum runtime is O(1) when there is 1 value in array A and B. The maximum is O(n^2) when there is 2 or more values in A and B. The maximum is also the same as the average runtime.
+	
+For method 2 the run time analysis was O(n^2) since there are 2^n combinations and at each combination you have a nested for loop. The minimum runtime is O(1) when there is 1 value in array A and B. The maximum is O(n^2) when there is 2 or more values in A and B. The average runtime of this method is less than O(n^2) it is based on how many negative and positive values are in array A and B. If the number of negative values in A is a and the number in B is b, then the runtime average is O(a(n-b)+(n-a)b) which is smaller than O(n^2).
+
+For method 3 the run time analysis was O(n) since there are n elements in the original array and you need to iterate through n of the elements to find the two elements from different arrays that are next to each other. The minimum run time is O(1) when there is 1 element in A and 1 element in B. The max is O(n) when there is more than 1 element in A and B. The average runtime is O(n).
+		Since we are using bubblesort in our code and it's runtime is O(n^2) then it dominates the Runtime    ****
+
+2)   *****
+int* sum;
+int* pos1;
+int* pos2;
+
+int divide_and_conquer(int N[n], int method, int start)
+	int A[n/2], B[n/2];
+	split(N, A, B);	
+
+	sum_func(A, p);
+	sum_func(B, s);
+
+	switch(method)
+	case 1:
+		method1(A, B, sum);
+		divide_and_conquer(A, method, start);
+		divide_and_conquer(B, method, start);
+		break;
+	case 2:
+		method2(A, B, sum);
+		divide_and_conquer(A, method, start);
+		divide_and_conquer(B, method, start);
+		break;
+	case 3:
+		method3(N, sum, pos1, pos2, start);
+		divide_and_conquer(A, method, start);
+		divide_and_conquer(B, method, n/2);
+		break;
+
+3)
+
+For Div & Conq for Method 1
+
+	T(n) = 2T(n/2) + O(n^2)
+
+	log_2(n)			       log_2(n)
+	(sigma)	  c(n/2^i)^2 * 2^i  =>	cn^2 * (Sigma) (1/2^i)	Since (1/2^i) < 1 then the sum will be O(1)  =>  T(n)=c*n^2  =>  O(n^2)
+	i=0				       i=0
+
+For Div & Conq for Method 2
+
+	T(n) = 2T(n/2) + O(n^2)
+
+	log_2(n)			       log_2(n)
+	(sigma)	  c(n/2^i)^2 * 2^i  =>	cn^2 * (Sigma) (1/2^i)	Since (1/2^i) < 1 then the sum will be O(1)  =>  T(n)=c*n^2  =>  O(n^2)
+	i=0				       i=0
+
+For Div & Conq
+
+	If we acknowledge the runtime of bubblesort it'll be the same runtime as Div & Conq with method 1 and 2
+	Assume we use a sort algo with runtime O(nlogn), it'll still dominate runtime of method 3 still, 
+	but it'll be different in the Div & Conq.
+
+	T(n) = 2T(n/2) + O(nlogn)
+
+	log_2(n)			       log_2(n)
+	(sigma)	  c(n/2^i) * 2^i  =>	cn * (Sigma) 1   We will add 1 log_2(n) times  =>  T(n)=c*nlogn  =>  O(nlogn)
+	i=0				       i=0
+
+	Assume we ignore using sort or our sort algo is O(1).
+
+	log_2(n)			       log_2(n)
+	(sigma)	  c(n/2^i) * 2^i  =>	cn * (Sigma) 1   We will add 1 log_2(n) times  =>  T(n)=c*nlogn  =>  O(nlogn)
+	i=0				       i=0

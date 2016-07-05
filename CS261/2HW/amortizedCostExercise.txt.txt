@@ -1,0 +1,81 @@
+﻿amortizedCostExercise.txt
+
+
+
+
+1. How many cost units are spent in the entire process of performing 16 consecutive push operations on an empty array which starts out at capacity 8, assuming that the array will double in capacity each time new item is added to an already full dynamic array? Now try it for 32 consecutive push operations. As N (ie. the number of pushes) grows large, under this strategy for resizing, what is the big-oh complexity for push?
+
+Order of Cost Units. (I = insert, M = move cost, C = Capcaity, S = Size)
+1.  I = 1                 S = 1 , C = 8
+2.  I = 1                 S = 2 , C = 8
+3.  I = 1                 S = 3 , C = 8
+4.  I = 1                 S = 4 , C = 8
+5.  I = 1                 S = 5 , C = 8
+6.  I = 1                 S = 6 , C = 8
+7.  I = 1                 S = 7 , C = 8
+8.  I = 1                 S = 8 , C = 8
+9.  I + 8M= 9      	  S = 9 , C = 16
+10. I = 1                 S = 10, C = 16
+11. I = 1                 S = 11, C = 16
+12. I = 1                 S = 12, C = 16
+13. I = 1                 S = 13, C = 16
+14. I = 1                 S = 14, C = 16
+15. I = 1                 S = 15, C = 16
+16. I = 1                 S = 16, C = 16
+
+Cost of different size arrays
+Cost(16) = 16 + 8 = 24
+Cost(32) = 32 + 8 + 16 = 56
+Cost(64) = 64 + 8 + 16 + 32 = 120
+Cost(128) = 128 + 8 + 16 + 32 + 64 = 248
+
+The Big-Oh complexity of the push is O(2n - 8) which would change to O(2n), Therefore, it would just be O(n)
+
+
+
+   1. How many cost units are spent in the entire process of performing 16 consecutive push operations on an empty array which starts out at capacity 8, assuming that the array will grow by a constant 2 spaces each time new item is added to an already full dynamic array? Now try it for 32 consecutive push operations. As N (ie. the number of pushes) grows large, under this strategy for resizing, what is the big-oh complexity for push?
+
+order of cost units. (I = insert, M = move cost, C = Capcaity, S = Size)
+1.  I = 1                         S = 1 , C = 8
+2.  I = 1                         S = 2 , C = 8
+3.  I = 1                         S = 3 , C = 8
+4.  I = 1                         S = 4 , C = 8
+5.  I = 1                         S = 5 , C = 8
+6.  I = 1                         S = 6 , C = 8
+7.  I = 1                         S = 7 , C = 8
+8.  I = 1                         S = 8 , C = 8
+9.  I + 8M= 9       	          S = 9 , C = 10
+10. I = 1                         S = 10, C = 10
+11. I + 10M = 11                  S = 11, C = 12
+12. I = 1                         S = 12, C = 12
+13. I + 12M = 13                  S = 13, C = 14
+14. I = 1                         S = 14, C = 14
+15. I + 14M = 15                  S = 15, C = 16
+16. I = 1                         S = 16, C = 16
+
+Cost of different size arrays
+Cost(16) = 16 + 8 + 10 + 12 + 14 = 60
+Cost(32) = 32 + 8 + 10 + 12 + 14 + 16 + 18 + 20 + 22 + 24 + 26 + 28 + 30 = 260
+
+I assume that the Big-Oh complexity of the push is like O(n+2i) . 
+I have no clue what that simplifies down to…
+It still looks like it would be O(n). but i dont know what the summation simplifies to
+The summation also simplifies to O(n). Yeah I feel like it would be larger
+So then it is O(n+n) which is O(n). Weird
+
+
+
+
+   2. Suppose that a dynamic array stack doubles its capacity when it is full, and shrinks (on Pop only) its capacity by half when the array is half full or less. Can you devise a sequence of N push() and pop()operations which will result in poor performance (O(N^2) 
+total cost)? How might you adjust the array's shrinking policy to avoid this? (Hint: You may assume that the initial capacity of the array is N/2.)
+
+   Start                                       S = 4, C = 8
+1. Pop         Cost = 1                        S = 3, C = 4
+2. Push        Cost = 1                        S = 4, C = 4
+3. Push        Cost = 5                        S = 5, C = 8
+4. Pop         Cost = 1                        S = 4, C = 8
+5. Pop         Cost = 1                        S = 3, C = 4
+6. Push        Cost = 1                        S = 4, C = 4
+7. Push        Cost = 5                        S = 5, C = 8
+8. Pop         Cost = 1                        S = 4, C = 8
+               Total Cost = 16

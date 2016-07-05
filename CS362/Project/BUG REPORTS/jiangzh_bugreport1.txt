@@ -1,0 +1,10 @@
+jiangzh
+Bug Report 1 :
+	I was testing the "smithy" function and ran into the problem that they were drawing too many cards. 
+		"for(i=0; i<5; i++)" So they were drawing 2 more cards than they should be.
+
+****	FIX :
+	Change the line to "for(i=0; i<3; i++)" and then it should be working great
+
+I'd say the prioity is low since it's just a character change, but the severity is high since drawing extra 
+can give a big advantage to a player.

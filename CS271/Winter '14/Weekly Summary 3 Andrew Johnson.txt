@@ -1,0 +1,11 @@
+Andrew Johnson Weekly Summary #3
+
+It seems like most of this weeks reading focused around the specifics of registers and flags.
+The first couple pages went into depth of how to use the command mov with different kinds of registers.
+I noticed that when using mov, you don't have to store all the bytes of the item you are storing. You can
+choose which bytes of the item you want if you so desire. Says a lot about the eax register and how there
+are 3 different types of data with registers. Immediate data which are the kinds we are using most of the time. 
+Register data where you call data inside the CPU. Lastly, Memory data which is data stored in a memory address.
+
+Then it goes to flags and the different uses for each kind of flag. There are many useful applications for all
+the flags. There was about 18 flags in a list given, and only 8 of them are actually useful for the programmer.

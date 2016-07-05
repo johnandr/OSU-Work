@@ -1,0 +1,15 @@
+Weekly Summary #4
+Andrew Johnson
+
+At first it goes over charcter encoding and how to define glyphs,
+then it goes over the 3 standard files which are input 0, output 1, and error 2.
+FOr the next couple pages it goes into how to use Make files,
+and why they are so useful to the programmer. 
+
+the next part of the reading starts with how to use compare,
+and implent it as a loop function. Then the book gives a helpful 
+table on what functions in nasm are associated with the ones in C.
+After that it starts telling us about protected mode and goes into detail
+about memory addressing with different registers. 
+After that it goes into character table translations defining most ASCII 
+code and gives some example code.

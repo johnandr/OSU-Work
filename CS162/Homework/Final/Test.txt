@@ -1,0 +1,62 @@
+I started with making the Floor Class.
+Had it read in the FloorA.txt file and get it into a 2D array
+    I could only make it read one file because it wouldn't like me initialize 
+    in an if statement.
+    FIXED: Initialize outside if statement, use open inside if statement
+
+Then I made a print function in the floor class to make sure it prints correctly
+Note: How I made the array, the coordinates were (y,x) instead of (x.y)
+      This threw my off for when I was checking the player's next position.
+      e.i. I was running into "invisible" walls, when it was just reading the wrong tile.
+
+Then I made the Character header and Player Class, I was trying to make error checking
+for invalid input/walls/etc inside Player class, but found it to be easier in the Game class.
+I also copied the print function from Floor into game, it made it so I could print my Player
+and Ghosts with the text file.
+
+After I had the move function completed, I made the error checking in Game. Once I could move
+around I started making a check function to where I could pick up Cherries, Keys, go through doors,
+check if Ghost caught me. Nothing really difficult about it. 
+
+Then I started making my Ghost move function. I was confused on how to get him to move back and forth,
+until I thought of using a shift variable that I just add to the Ghost's X position to move,
+and have a counter in the ghost class when it equals the max amount of moves, make the shift variable
+negative and it started moving the ghost back and forth. Originally, had the Ghost "kill" the player if
+it was on the same tile, then I read the Assignment again and made it if it was adjacent to the player.
+
+Once all that was done, my main problem was finding out how to initialize all 3 Floors into the Game class.
+First, I tried a vector, then I tried using a dynamic array, but it'll always be 3 Floors, so I made a static
+array, but I couldn't set the floor. 
+    This was because I tried setting up the floor inside the Floor constructor,
+    but I realized I can set up the floor inside the Game constructor.
+
+Finally had my array of floors. When testing the Game play originally, I just had FloorA
+and tested going up and down ladders with print functions. After I had my array of floors,
+I did a replace all in my Game class where curr(my test Floor class) is replaced by floors[bob].
+    bob was the int variable name I had my friends name. After that I could go up/down all of the floors.
+
+Lastly, I changed the for loop I was using to move around and play the game to a while loop
+with an end boolean so you play until the end. 
+
+My only big challenges were reading in separate floors with if statement, checking player's position,
+and creating my array of Floors.
+
+*****ADDITION FOR TESTING FOR FINAL PROJECT*****
+
+When updating the game, I started with moving the ghost around randomly and
+stopping it from moving through walls.
+
+The difficult part was getting it to stop going through walls while chasing
+was activated. I fixed it by doing a double check and if they both fail it
+just moves randomly.
+
+The last part was getting the "Fog of War" down. At first I used two for
+loops, one that increments and another the decrements. This still made a
+square and not the diamond shape. I realized the second number needs to be
+decreased before initialized in the for loop. Success, but there was
+overlapping on the maze.
+
+To fix this I just used if statements to check the boundary of the maze. After
+wrestling around with it and using gdb, I finally got it so it doesn't crash. 
+
+I hope you enjoy!!!

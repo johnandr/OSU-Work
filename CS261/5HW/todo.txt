@@ -1,0 +1,4 @@
+3   Do Assignment 5
+1   Study Heap-Based Priority Queue
+0   Take Nap
+101 Review Trees for Midterm 2

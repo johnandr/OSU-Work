@@ -1,0 +1,14 @@
+liujiaw
+Bug Report 2 :
+	I used a unit tester for the "village" function and an error
+	came up for the numActions variable. It wasn't matching up 
+	when after playing the "village" card. I found that it si actually
+	returning one less than what the actual card should. This requires 
+	a simple fix.
+*****
+	Fix :
+That statement affecting this is "state->numActions = state->numactions + 1"
+when all you need to do is "state->numActions = state->numactions + 2"
+
+I'd give this a low priority since it's only a character change and a medium
+severity, since you can still technically play the game and finish with this bug.

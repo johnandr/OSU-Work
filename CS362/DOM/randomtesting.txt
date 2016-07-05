@@ -1,0 +1,12 @@
+ASSIGNMENT 3		ANDREW JOHNSON
+
+	To start all of my randomtests obtained around 80-90% coverage. 
+	This is a significant improvement where I had as low as 30% to 60% of coverage with my unittests.
+	The two cards I decided to randomtest were smithy and outpost. I made local varibales that are simailar to the
+	inputsof the funtcions and then after running through the function I compared the game's  state with how it 
+	should've changed with the local variables. Going going through an iteration I reset the game state and picked
+	a random play to state the next round. I'm honestly going blinding into these tests. I'm trying to make it so 
+	it test every viable part of the card, where I'm using up to max players a large number of times. I'm not sure 
+	how well the tests are actually doing, but from the results that are coming out of my executable, there seems 
+	to be no ERROR that found in the cards. It took me a long time finding out how to start and build a random test,
+	but after I found a basis of of writing it, it seemed pretty straight forward. 

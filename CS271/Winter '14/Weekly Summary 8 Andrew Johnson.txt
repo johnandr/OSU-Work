@@ -1,0 +1,12 @@
+Weekly Summary #8
+Andrew Johnson
+
+At the start of the reading it goes over how to stop loops,
+other than just using ECX when it's 0. It's example uses printing off the ASCII table.
+Then we learn how to do a command line arguement and how it fits in the stack.
+ESP is how we build our stack and it will be the top of it.
+Then it goes over more about comand line arguements and gives example code
+of reading the command line and then printing it.
+
+The last couple pages goes over interupts using your code. It describes the different
+uses for INT 80 and the different registers to use with it.

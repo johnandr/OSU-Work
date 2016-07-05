@@ -1,0 +1,98 @@
+Mutation tests
+	I decided to use mutations of adventurer, smithy, and steward.
+To test these mutants I'm using the random tests for the cards I had from
+the eariler assignments. Then I compared the results of the mutant and the
+original. From what I learned in class, the only mutants I care about are
+the mutants that differ from the original.
+
+***Testing Adventurer Mutations***
+
+Mutant1 : 
+	After compiling and running the first mutant, I had to use gdb
+	and found an error
+***
+	650	    if (state->deckCount[currentPlayer] <= 1){//if the deck is empty we need to shuffle discard and add to deck //m1
+***
+
+	I ran with the normal randomtester and I recieved an error as well	
+*** 
+	650	    if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
+***
+	I can see that the error is on the same line, and there is a difference between the two lines. 
+	In the 'if' statement the <= 1 changes to < 1.
+	There is no diffence from the two so this mutant can be killed.
+
+Mutant2 :
+	After compiling the second mutant I got another error
+***
+	654     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]];
+***
+
+	And after I ran it on the original code I also recieved the error
+***
+	654     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer] - 1];
+***
+	Both errors are on the same line but the difference between the line is [state->handCount[currentPlayer]]
+	instead of [state->handCount[currentPlayer] - 1]. These errors are no different from each other thus
+	this mutant can be killed as well.
+
+Mutant3 :
+	Once again compiled and ran the third mutant, this one compiled fine,
+	where as the orginal did not. The change I found is
+***
+	656     if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+***
+
+	where the orignal was
+***
+	656     if (cardDrawn == copper && cardDrawn == silver && cardDrawn == gold)
+***
+
+	Since this mutation was different we can keep it and see if it helps the program. 
+	Most likely it's a fix.
+
+
+***Testing Smithy Mutations***
+
+Mutant1 :
+	Running the first mutant gave an ERROR that stated "We tried to reach outside the 
+	bounds of handCount. After looking at the difference I saw
+***
+	725   for (i = 0; i < 7; i++)    
+***
+	Where the original has i < 5. But the original also gives this error. Therefore, 
+	we can kill this mutant.
+
+Mutant2 :
+	After running the second mutant, I got an error as well. But this one flaged the handCount.
+	I looked between the two and noticed that the discard function was taken out. 
+	This differed with the original code, so I'll need to keep this mutant to see why this matters.
+
+Mutant3 :
+	Running the third mutant, I ran it and got a passing test. Since the original didn't go well,
+	I looked for the difference and it's like the first mutant but instead of i < 7 it was i < 3.
+	Since we obtained a passing test, we found a fix for a bug on this function. 
+
+***Testing Steward Mutations***
+
+Mutant1 : 
+	This mutant gave me a different parameter than the orignal code. After looking at
+	the differences. I noticed the mutant subtracts 2 instead of adds. Since they give
+	different results I need to keep this mutant.
+
+Mutant2 :
+	This mutant also gave a seperate reading from the orginal. Looking at the diffences
+	of the code, it's calling discardCard as 10 for the last parameter. This changes the 
+	playedCard state. The original has the parameter as 1. So I'll have to keep this 
+	mutant as well.
+
+Mutant3 :
+	Once again another mutant gave another output. So as per the other mutations I'll 
+	have to keep this one as well to compare.
+
+
+Conclusion :
+	I notice that mutation teseting is a great way to see how code can work if given various ways
+	to pass around different parameters that are sepreate from the ones the user inputs. 
+	This can give a better understanding on what functions can/should do. Sadly, it's a pain if 
+	I had to do this for many more mutations. It might take much longer than needed for testing. 

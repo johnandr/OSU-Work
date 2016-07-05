@@ -1,0 +1,12 @@
+DIFFERENTIAL.TXT
+
+I found this assignment to be one of the more touhger ones. 
+I got a good random tester for dominion where with my own code I achieved up to 95% coverage. 
+Whereas when using another students code I only got 76%. Both tests found that when not playing the smart way,
+or probably incorrect way with the card "mine". Where the computer tried to discard a higher valued coin for a lowered value coin.
+This was the only failure I found when using the random test. 
+
+I'm completely unaware of how the use shell commands, or python to run C code. It's frustrating when expected to use it but not 
+giving suffient notes on how to go about using it. I spent hours trying to figure out how and can't. I'm just going to assume
+that the tests from eachothers codes are different. Although I looked through the other code and it's very similiar to mine.
+So if the was a diffence it would be very difficult to find what it was since there is so many lines in the test output. 

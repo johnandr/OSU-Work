@@ -1,0 +1,38 @@
+Class Hierarchy
+
+    Character <-- Game --> Floor
+    /     \
+Ghost    Player
+
+
+    **Character Class**
+
+Has a - x position, y position, symbol
+
+Functions needed - Move(Virtual), getX(Virtual), getY(Virtual), getSymbol(Virtual)
+
+    **Ghost Class**
+
+Has a - counter
+
+No additional functions needed
+
+    **Player Class**
+
+Has a - keys, invincibilty
+
+Additional Functions - getKeys, getInvincibilty, change keys, reset position
+
+    **Floor Class**
+
+Has a - 2D array of characters
+
+Functions needed - setFloor from read text file, getTile, setTile
+
+    **Game class**
+
+Has a - Array of Floors, Ghosts for each floors, Player, end bool
+
+Functions needed - Play, Print, Check/Ghost Check, Select(input)
+                                ^^^^^
+                        This has the "Fog of War" code

@@ -1,0 +1,14 @@
+When I first started refactoring the functions our of the switch statement, I was trying to understand the game and the rules.
+Since this was my first time being introduced to the game I wanted to learn about the cards. I realized that after refactoring 
+and testing my council_room function, I was drawing the wrong amount of cards. I orginally had the function only drawing 3 cards.
+The for loop for drawing went from 0 to 2. I originally found this with a unittest checking the variables. I noticed they weren't matching.
+I know how to use GDB so I decided to run it and breaking the code right before the call. Then I displayed the handCount and watched 
+how many times I drew. Turns out it was only 3 cards I was drawing. So I went in and looked at what it the code looked like. 
+This was the easiest way for me to see what was wrong. After changing it to draw one more card I tested it again and it seemed to work fine.
+
+Some of Agan's Principles I was using while doing this is, 
+1) Trying to understand the system by reviewing what each card did and how the worked with the game.
+
+3) After using the debugger I just went into the code and saw what it was doing.
+
+9) If you didn't fix it, it aint fixed. By this rule I just made sure it was fixed by testing it again after changing it and making sure it was working properly.

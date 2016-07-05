@@ -1,0 +1,93 @@
+        -:    0:Source:randomtestcard2.c
+        -:    0:Graph:randomtestcard2.gcno
+        -:    0:Data:randomtestcard2.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "dominion.h"
+        -:    2:#include "dominion_helpers.h"
+        -:    3:#include <string.h>
+        -:    4:#include <stdio.h>
+        -:    5:#include <stdlib.h>
+        -:    6:#include <assert.h>
+        -:    7:#include <time.h>
+        -:    8:#include "rngs.h"
+        -:    9:
+        -:   10:#define DEBUG 0
+        -:   11:#define NOISY_TEST 1
+        -:   12:
+        -:   13:int outpostCard(struct gameState *state, int *currentPlayer, int *handPos);
+        -:   14:
+   210064:   15:int random_number(int min, int max)
+        -:   16:{
+   210064:   17:	int result=0; 
+   210064:   18:    int low = 0;
+   210064:   19:    int high = 0;
+        -:   20:     
+   210064:   21:	if(min < max)
+        -:   22:	{
+   210064:   23:	    low = min;
+   210064:   24:		high = max + 1; // this is done to include max_num in output.
+        -:   25:	}else
+        -:   26:	{   
+    #####:   27:		low = max + 1;// this is done to include max_num in output.
+    #####:   28:		high = min;
+        -:   29:	}
+        -:   30:	    
+   210064:   31:	srand(time(NULL));
+        -:   32:	     
+   210064:   33:	result = (rand()%(high - low)) + low;
+   210064:   34:	return result;
+        -:   35:}
+        -:   36:
+        1:   37:int main(int argc, char const *argv[])
+        -:   38:{
+        -:   39:
+        -:   40:	struct gameState game;
+        -:   41:
+        -:   42:	int i, j;
+        1:   43:	int k[10] = {adventurer, gardens, embargo, outpost, minion, mine, cutpurse, sea_hag, tribute, smithy};
+        -:   44:	int myCard;
+        -:   45:
+        -:   46:	int currentplayer;
+        1:   47:	int handpos = -1;
+        -:   48:	int cardsInHand;
+        -:   49:	int outpostplayed;
+        -:   50:
+       22:   51:	for(i=0; i < random_number(5,100); i++)
+        -:   52:	{ // Loops a random number of times <100
+        -:   53:
+       21:   54:		initializeGame(random_number(2,4), k, random_number(1,9), &game); // Initialize a game with a random seed between 1-9
+        -:   55:
+   210021:   56:		for(j=0; j < 10000; j++)
+        -:   57:		{
+   210000:   58:			currentplayer = game.whoseTurn;
+        -:   59:
+   210000:   60:			cardsInHand = game.handCount[currentplayer];
+        -:   61:
+   210000:   62:			outpostplayed = game.outpostPlayed;
+        -:   63:
+   210000:   64:			if(myCard = outpostCard(&game, &currentplayer, &handpos) != 0)
+        -:   65:			{
+    #####:   66:				printf("Error: outpostCard returned something than 0. Random Game[%d] interation[%d]\n", i, j);
+        -:   67:			}
+        -:   68:
+   210000:   69:			if(game.outpostPlayed != outpostplayed + 1)
+        -:   70:			{
+    #####:   71:				printf("Error: Improper increment of game->outpostPlayed. Random Game[%d] interation[%d]\n", i, j);
+        -:   72:			}
+        -:   73:
+        -:   74:
+   210000:   75:			game.outpostPlayed = 0;
+   210000:   76:			game.phase = 0;
+   210000:   77:			game.numActions = 1;
+   210000:   78:			game.numBuys = 1;
+   210000:   79:			game.playedCardCount = 0;
+   210000:   80:			game.whoseTurn = random_number(2, game.numPlayers);
+   210000:   81:			game.handCount[game.whoseTurn] = 0;
+        -:   82:
+        -:   83:		}
+        -:   84:	}
+        -:   85:
+        1:   86:	return 0;
+        -:   87:
+        -:   88:}
